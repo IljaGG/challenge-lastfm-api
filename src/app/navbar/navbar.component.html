@@ -1,10 +1,9 @@
 <mat-toolbar class="navigation">
     <div class="navigation-container">
         <span>Challenge</span>
-        <mat-form-field class="example-full-width">
-            <mat-label>Find your Band</mat-label>
-            <input matInput placeholder="Type here ... ">
-        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Search artists" [(ngModel)]="searchTerm" (ngModelChange)="filterArtists()">
+          </mat-form-field>
         <button mat-raised-button>Compare</button>
     </div>
 </mat-toolbar>

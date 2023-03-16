@@ -8,8 +8,8 @@
             </mat-select>
         </mat-form-field>
 
-          <mat-list role="list">
-            <mat-list-item *ngFor="let artist of artists" role="listitem">
+          <mat-list role="list" *ngIf="showList">
+            <mat-list-item *ngFor="let artist of artists" role="listitem" (click)="getInfo(artist)">
                 <div class="item-container">
                     <span> Artist: {{ artist.name }} </span>
                     <span> Listeners: {{ artist.listeners }} </span>
@@ -17,5 +17,20 @@
                 </div>
             </mat-list-item>
           </mat-list>
+
+          <mat-card *ngIf="showCard">
+            <mat-card-header>
+              <mat-card-title>{{ selectedArtist.name }}</mat-card-title>
+              <mat-card-subtitle>{{ selectedArtist.stats.listeners }} listeners</mat-card-subtitle>
+            </mat-card-header>
+            <img class="band-img" mat-card-image [src]="selectedArtist.image[2]['#text']" alt="Artist Image">
+            <mat-card-content>
+              <p>{{ selectedArtist.bio.summary }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-button href="{{selectedArtist.bio.links.link.href}}">Read more on Last.fm</a>
+              </mat-card-actions>
+              <button mat-raised-button (click)="closeInfo()">Close</button>
+          </mat-card>
     </div>
 </div>

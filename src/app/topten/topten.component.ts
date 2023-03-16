@@ -11,8 +11,14 @@ export class ToptenComponent implements OnInit {
   myData: any;
   artists: any;
   countrys = ['Germany', 'Spain', 'France'];
-  constructor(private lastfmapiService: LastfmApiService) { }
-  
+  showList: boolean = true;
+  showCard: boolean = false;
+  selectedArtist: any;
+
+  constructor(
+    private lastfmapiService: LastfmApiService
+  ) { }
+
 
   ngOnInit(): void {
     this.getTopTen('germany');
@@ -27,5 +33,20 @@ export class ToptenComponent implements OnInit {
 
   updateCountry(countryCode: string): void {
     this.getTopTen(countryCode);
+    this.showList = true;
+    this.showCard = false;
+  }
+
+  getInfo(artist: any) {
+    this.lastfmapiService.getInfo(artist.name).subscribe((data) => {
+      this.selectedArtist = data.artist;
+      this.showList = false;
+      this.showCard = true;
+    });
+  }
+
+  closeInfo() {
+    this.showList = true;
+    this.showCard = false;
   }
 }

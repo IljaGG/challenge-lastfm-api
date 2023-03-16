@@ -15,4 +15,9 @@ export class LastfmApiService {
     return this.http.get(url);
   }
 
+  getInfo(artistName: string): Observable<any> {
+    const artistUrl = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=28fe95c1411f3e7b72d7f7689024e40d&format=json`;
+    return this.http.get(artistUrl);
+  }
+
 }

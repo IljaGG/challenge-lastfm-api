@@ -8,12 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ToptenComponent } from './topten/topten.component';
-import { BandDetailComponent } from './band-detail/band-detail.component';
 import { LastfmApiService } from './service/lastfm-api.service';
 
 @NgModule({
@@ -21,7 +21,6 @@ import { LastfmApiService } from './service/lastfm-api.service';
     AppComponent,
     NavbarComponent,
     ToptenComponent,
-    BandDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +32,8 @@ import { LastfmApiService } from './service/lastfm-api.service';
     MatInputModule,
     MatSelectModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule
   ],
   providers: [LastfmApiService,],
   bootstrap: [AppComponent]
