@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LautfmApiService } from './lastfm-api.service';
+import { LastfmApiService } from './lastfm-api.service';
 
 describe('LautfmApiService', () => {
-  let service: LautfmApiService;
+  let service: LastfmApiService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LautfmApiService);
+    service = TestBed.inject(LastfmApiService);
   });
 
   it('should be created', () => {

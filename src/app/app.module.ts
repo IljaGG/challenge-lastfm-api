@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +30,10 @@ import { LastfmApiService } from './service/lastfm-api.service';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatListModule,
+    MatCardModule
   ],
   providers: [LastfmApiService,],
   bootstrap: [AppComponent]

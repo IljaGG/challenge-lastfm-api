@@ -10,13 +10,22 @@ import { LastfmApiService } from '../service/lastfm-api.service';
 export class ToptenComponent implements OnInit {
   myData: any;
   artists: any;
+  countrys = ['Germany', 'Spain', 'France'];
   constructor(private lastfmapiService: LastfmApiService) { }
   
 
   ngOnInit(): void {
-    this.lastfmapiService.getTopTen().subscribe((data) => {
+    this.getTopTen('germany');
+  }
+
+  getTopTen(countryCode: string): void {
+    this.lastfmapiService.getTopTen(countryCode).subscribe((data) => {
       this.myData = data;
       this.artists = this.myData.topartists.artist.slice(0, 10);
     });
+  }
+
+  updateCountry(countryCode: string): void {
+    this.getTopTen(countryCode);
   }
 }

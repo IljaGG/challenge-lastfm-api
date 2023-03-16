@@ -1,8 +1,21 @@
+<div class="topten-wrapper">
+    <div class="container">
+        <mat-form-field>
+            <mat-select placeholder="Germany" (selectionChange)="updateCountry($event.value)">
+                <mat-option *ngFor="let country of countrys" [value]="country">
+                    {{ country }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-<h1>Spain</h1>
-
-<ul>
-    <li *ngFor="let artist of artists">{{ artist.name }}</li>
-  </ul>
-
-
+          <mat-list role="list">
+            <mat-list-item *ngFor="let artist of artists" role="listitem">
+                <div class="item-container">
+                    <span> Artist: {{ artist.name }} </span>
+                    <span> Listeners: {{ artist.listeners }} </span>
+                    <img [src]="artist.image[0]['#text']" alt="Artist Image">
+                </div>
+            </mat-list-item>
+          </mat-list>
+    </div>
+</div>
