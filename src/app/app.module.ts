@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ToptenComponent } from './topten/topten.component';
 import { BandDetailComponent } from './band-detail/band-detail.component';
+import { LastfmApiService } from './service/lastfm-api.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { BandDetailComponent } from './band-detail/band-detail.component';
     MatButtonModule,
     MatInputModule
   ],
-  providers: [],
+  providers: [LastfmApiService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

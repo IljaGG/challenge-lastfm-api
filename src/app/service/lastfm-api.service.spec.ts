@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LautfmApiService } from './lautfm-api.service';
+import { LautfmApiService } from './lastfm-api.service';
 
 describe('LautfmApiService', () => {
   let service: LautfmApiService;
