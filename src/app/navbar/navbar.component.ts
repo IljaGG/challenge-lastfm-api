@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -6,16 +7,22 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit{
-searchTerm: any;
-filterArtists() {
-throw new Error('Method not implemented.');
-}
+export class NavbarComponent implements OnInit{ 
+  sbsOn: boolean = true;
 
-  searchQuery: string = '';
-
-  constructor() { }
+  constructor(private router: Router) { }
   ngOnInit(): void {
     
   }
+
+  openSideBySide() {
+    this.router.navigate(['/sidebyside']);
+    this.sbsOn = false;
+  }
+
+  openTopTen() {
+    this.router.navigate(['/topten']);
+    this.sbsOn = true;
+  }
+
 }

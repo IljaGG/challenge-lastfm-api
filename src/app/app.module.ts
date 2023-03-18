@@ -9,18 +9,21 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ToptenComponent } from './topten/topten.component';
 import { LastfmApiService } from './service/lastfm-api.service';
+import { SidebysideComponent } from './sidebyside/sidebyside.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ToptenComponent,
+    SidebysideComponent 
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { LastfmApiService } from './service/lastfm-api.service';
     MatSelectModule,
     MatListModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatGridListModule
   ],
   providers: [LastfmApiService,],
   bootstrap: [AppComponent]

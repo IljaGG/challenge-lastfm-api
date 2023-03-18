@@ -1,0 +1,97 @@
+<div class="sbs-wrapper">
+    <div class="container">
+        <mat-form-field>
+            <mat-select placeholder="Germany" (selectionChange)="updateCountryL($event.value)">
+                <mat-option *ngFor="let country of countrys" [value]="country">
+                    {{ country }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-list role="list" *ngIf="showListL">
+            <mat-list-item *ngFor="let artist of artistsL" role="listitem" (click)="getInfoL(artist)">
+                <div class="item-container">
+                    <span> {{ artist.name }} </span>
+                </div>
+            </mat-list-item>
+        </mat-list>
+
+        <mat-card *ngIf="showCardL">
+            <mat-card-header>
+                <mat-card-title>{{ selectedArtistL.name }}</mat-card-title>
+            </mat-card-header>
+            <img class="band-img" mat-card-image [src]="selectedArtistL.image[2]['#text']" alt="Artist Image">
+            <mat-card-content>
+                <p>Listeners: {{ selectedArtistL.stats.listeners }}</p>
+            </mat-card-content>
+            <mat-card-content>
+                <p>Playcount: {{ selectedArtistL.stats.playcount }}</p>
+            </mat-card-content>
+            <mat-card-content>
+                <p>Music Style:</p>
+                <ul>
+                    <li *ngFor="let tag of selectedArtistL.tags.tag">{{ tag.name }}</li>
+                </ul>
+            </mat-card-content>
+            <mat-card-content>
+                <p>Similar Artists or Bands:</p>
+                <ul>
+                    <li *ngFor="let artist of selectedArtistL.similar.artist">{{ artist.name }}</li>
+                </ul>
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-button href="{{ selectedArtistL.bio.links.link.href }}">Read more on Last.fm</a>
+            </mat-card-actions>
+            <button mat-raised-button (click)="closeInfoL()">Close</button>
+        </mat-card>
+
+    </div>
+
+    <div class="container">
+        <mat-form-field>
+            <mat-select placeholder="Germany" (selectionChange)="updateCountryR($event.value)">
+                <mat-option *ngFor="let country of countrys" [value]="country">
+                    {{ country }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-list role="list" *ngIf="showListR">
+            <mat-list-item *ngFor="let artist of artistsR" role="listitem" (click)="getInfoR(artist)">
+                <div class="item-container">
+                    <span> {{ artist.name }} </span>
+                </div>
+            </mat-list-item>
+        </mat-list>
+
+        <mat-card *ngIf="showCardR">
+            <mat-card-header>
+                <mat-card-title>{{ selectedArtistR.name }}</mat-card-title>
+            </mat-card-header>
+            <img class="band-img" mat-card-image [src]="selectedArtistR.image[2]['#text']" alt="Artist Image">
+            <mat-card-content>
+                <p>Listeners: {{ selectedArtistR.stats.listeners }}</p>
+            </mat-card-content>
+            <mat-card-content>
+                <p>Playcount: {{ selectedArtistR.stats.playcount }}</p>
+            </mat-card-content>
+            <mat-card-content>
+                <p>Music Style:</p>
+                <ul>
+                    <li *ngFor="let tag of selectedArtistR.tags.tag">{{ tag.name }}</li>
+                </ul>
+            </mat-card-content>
+            <mat-card-content>
+                <p>Similar Artists or Bands:</p>
+                <ul>
+                    <li *ngFor="let artist of selectedArtistR.similar.artist">{{ artist.name }}</li>
+                </ul>
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-button href="{{selectedArtistR.bio.links.link.href}}">Read more on Last.fm</a>
+            </mat-card-actions>
+            <button mat-raised-button (click)="closeInfoR()">Close</button>
+        </mat-card>
+
+    </div>
+</div>

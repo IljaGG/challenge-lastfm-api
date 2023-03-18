@@ -50,3 +50,5 @@ export class ToptenComponent implements OnInit {
     this.showCard = false;
   }
 }
+
+

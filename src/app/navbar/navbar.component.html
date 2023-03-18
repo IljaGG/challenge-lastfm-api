@@ -2,8 +2,9 @@
     <div class="navigation-container">
         <span>Challenge</span>
         <mat-form-field>
-            <input matInput placeholder="Search artists" [(ngModel)]="searchTerm" (ngModelChange)="filterArtists()">
+            <input matInput placeholder="Search artists">
           </mat-form-field>
-        <button mat-raised-button>Compare</button>
+        <button *ngIf="sbsOn" mat-raised-button (click)="openSideBySide()">Compare</button>
+        <button *ngIf="!sbsOn" mat-raised-button (click)="openTopTen()">Back</button>
     </div>
 </mat-toolbar>
