@@ -16,3 +16,9 @@
 .example-full-width {
     padding-top: 10px;
 }
+
+@media (max-width: 515px) {
+    mat-form-field {
+        display: none;
+    }
+}

@@ -1,5 +1,7 @@
 <div class="sbs-wrapper">
+    <!--Left side-->
     <div class="container">
+        <!-- Dropdown menu for selecting a country on the left side -->
         <mat-form-field>
             <mat-select placeholder="Germany" (selectionChange)="updateCountryL($event.value)">
                 <mat-option *ngFor="let country of countrys" [value]="country">
@@ -8,14 +10,15 @@
             </mat-select>
         </mat-form-field>
 
+        <!-- List of top ten artists for the selected country on the left side -->
         <mat-list role="list" *ngIf="showListL">
             <mat-list-item *ngFor="let artist of artistsL" role="listitem" (click)="getInfoL(artist)">
                 <div class="item-container">
-                    <span> {{ artist.name }} </span>
+                    <span class="list-item-span"> {{ artist.name }} </span>
                 </div>
             </mat-list-item>
         </mat-list>
-
+         <!-- Detailed information about a selected artist on the left side -->
         <mat-card *ngIf="showCardL">
             <mat-card-header>
                 <mat-card-title>{{ selectedArtistL.name }}</mat-card-title>
@@ -48,6 +51,7 @@
     </div>
 
     <div class="container">
+        <!--right side (similar to left side with renamed variables and functions)-->
         <mat-form-field>
             <mat-select placeholder="Germany" (selectionChange)="updateCountryR($event.value)">
                 <mat-option *ngFor="let country of countrys" [value]="country">
@@ -56,10 +60,11 @@
             </mat-select>
         </mat-form-field>
 
+        
         <mat-list role="list" *ngIf="showListR">
             <mat-list-item *ngFor="let artist of artistsR" role="listitem" (click)="getInfoR(artist)">
                 <div class="item-container">
-                    <span> {{ artist.name }} </span>
+                    <span class="list-item-span"> {{ artist.name }} </span>
                 </div>
             </mat-list-item>
         </mat-list>

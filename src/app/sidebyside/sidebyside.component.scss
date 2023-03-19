@@ -5,6 +5,9 @@
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width:200px;
     padding-left: 12px;
     padding-right: 12px;
@@ -31,4 +34,22 @@ mat-list-item {
 
 mat-card-content {
     margin: 8px 0;
+}
+@media (max-width: 400px) {
+    mat-form-field {
+        width: 140px;
+    }
+
+    .container {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    mat-card-content {
+        font-size: smaller;
+    }
+    .list-item-span {
+        font-size: smaller;
+        flex-wrap: wrap;
+    }
 }

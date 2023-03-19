@@ -15,11 +15,14 @@ export class NavbarComponent implements OnInit{
     
   }
 
+  //sends to route /sidebyside
+
   openSideBySide() {
     this.router.navigate(['/sidebyside']);
     this.sbsOn = false;
   }
 
+  //sends to route /topten
   openTopTen() {
     this.router.navigate(['/topten']);
     this.sbsOn = true;

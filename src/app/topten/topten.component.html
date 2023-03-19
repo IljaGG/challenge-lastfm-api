@@ -1,37 +1,42 @@
 <div class="topten-wrapper">
-    <div class="container">
-        <mat-form-field>
-            <mat-select placeholder="Germany" (selectionChange)="updateCountry($event.value)">
-                <mat-option *ngFor="let country of countrys" [value]="country">
-                    {{ country }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+  <div class="container">
+      
+      <!-- Dropdown menu for countries -->
+      <mat-form-field>
+          <mat-select placeholder="Germany" (selectionChange)="updateCountry($event.value)">
+              <mat-option *ngFor="let country of countrys" [value]="country">
+                  {{ country }}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
 
-          <mat-list role="list" *ngIf="showList">
-            <mat-list-item *ngFor="let artist of artists" role="listitem" (click)="getInfo(artist)">
-                <div class="item-container">
-                    <span> Artist: {{ artist.name }} </span>
-                    <span> Listeners: {{ artist.listeners }} </span>
-                    <img [src]="artist.image[0]['#text']" alt="Artist Image">
-                </div>
-            </mat-list-item>
-          </mat-list>
+      <!-- List of the top 10 artists for the selected country. The Images in the API 
+        are not working (https://stackoverflow.com/questions/55978243/last-fm-api-returns-same-white-star-image-for-all-artists)-->
+      <mat-list role="list" *ngIf="showList">
+          <mat-list-item *ngFor="let artist of artists" role="listitem" (click)="getInfo(artist)">
+              <div class="item-container">
+                  <span> Artist: {{ artist.name }} </span>
+                  <span class="listeners"> Listeners: {{ artist.listeners }} </span>
+                  <img class="list-img" [src]="artist.image[0]['#text']" alt="Artist Image">
+              </div>
+          </mat-list-item>
+      </mat-list>
 
-          <mat-card *ngIf="showCard">
-            <mat-card-header>
+      <!-- Card that displays information about the selected artist -->
+      <mat-card *ngIf="showCard">
+          <mat-card-header>
               <mat-card-title>{{ selectedArtist.name }}</mat-card-title>
               <mat-card-subtitle>{{ selectedArtist.stats.listeners }} listeners</mat-card-subtitle>
-            </mat-card-header>
-            <img class="band-img" mat-card-image [src]="selectedArtist.image[2]['#text']" alt="Artist Image">
-            <mat-card-content>
+          </mat-card-header>
+          <img class="band-img" mat-card-image [src]="selectedArtist.image[2]['#text']" alt="Artist Image">
+          <mat-card-content>
               <p>{{ selectedArtist.bio.summary }}</p>
-            </mat-card-content>
-            <mat-card-actions>
-                <a mat-button href="{{selectedArtist.bio.links.link.href}}">Read more on Last.fm</a>
-              </mat-card-actions>
-              <button mat-raised-button (click)="closeInfo()">Close</button>
-          </mat-card>
-
-    </div>
+          </mat-card-content>
+          <mat-card-actions>
+              <a mat-button href="{{selectedArtist.bio.links.link.href}}">Read more on Last.fm</a>
+          </mat-card-actions>
+          <button mat-raised-button (click)="closeInfo()">Close</button>
+      </mat-card>
+      
+  </div>
 </div>

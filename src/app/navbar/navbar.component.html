@@ -1,9 +1,11 @@
 <mat-toolbar class="navigation">
     <div class="navigation-container">
         <span>Challenge</span>
+        <!-- searchfield is just a dummy, I struggle at searchfields -->
         <mat-form-field>
             <input matInput placeholder="Search artists">
           </mat-form-field>
+        <!-- sbsOn boolean shows eather compare or back button in navigation -->
         <button *ngIf="sbsOn" mat-raised-button (click)="openSideBySide()">Compare</button>
         <button *ngIf="!sbsOn" mat-raised-button (click)="openTopTen()">Back</button>
     </div>

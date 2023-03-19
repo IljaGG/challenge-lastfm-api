@@ -57,6 +57,24 @@ mat-card {
     object-fit: cover;
 }
 
+@media (max-width: 650px) {
+    .list-img {
+        display: none;
+    }
+    .item-container {
+        span {
+            width: 185px;
+        }
+    }
+}
+
+@media (max-width: 515px) {
+    .item-container {
+        .listeners {
+            display: none;
+        }
+    }
+}
 
 
  

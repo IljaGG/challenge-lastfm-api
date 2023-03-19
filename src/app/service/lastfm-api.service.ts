@@ -11,28 +11,33 @@ export class LastfmApiService {
  
   constructor(private http: HttpClient) { }
 
-  // fetch top 10
+  // method to fetch top 10 artists from Last.fm API for a given country
   getTopTen(countryCode: string): Observable<any> {
     const url = `https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=${countryCode}&api_key=${this.apiKey}&format=json`;
     return this.http.get(url);
   }
+  // method to fetch top 10 artists for the left panel
   getTopTenL(countryCode: string): Observable<any> {
     const url = `https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=${countryCode}&api_key=${this.apiKey}&format=json`;
     return this.http.get(url);
   }
+  // method to fetch top 10 artists for the right panel
   getTopTenR(countryCode: string): Observable<any> {
     const url = `https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=${countryCode}&api_key=${this.apiKey}&format=json`;
     return this.http.get(url);
   }
-  //fetch artist infos
+
+  // method to fetch artist information from Last.fm API for a given artist name
   getInfo(artistName: string): Observable<any> {
     const artistUrl = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=${this.apiKey}&format=json`;
     return this.http.get(artistUrl);
   }
+  // method to fetch artist information for the left panel
   getInfoL(artistName: string): Observable<any> {
     const artistUrl = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=${this.apiKey}&format=json`;
     return this.http.get(artistUrl);
   }
+  // method to fetch artist information for the right panel
   getInfoR(artistName: string): Observable<any> {
     const artistUrl = `https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=${artistName}&api_key=${this.apiKey}&format=json`;
     return this.http.get(artistUrl);
