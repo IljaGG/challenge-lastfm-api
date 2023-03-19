@@ -43,7 +43,13 @@ mat-list-item {
 }
 
 mat-card {
+    display: flex;
+    flex-wrap: wrap;
     max-width: 800px;
+
+    img {
+        margin: 12px 0;
+    }
 
     button {
         width: 100px;
