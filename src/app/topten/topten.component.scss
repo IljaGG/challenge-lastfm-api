@@ -63,6 +63,13 @@ mat-card {
     object-fit: cover;
 }
 
+.search-input {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 @media (max-width: 650px) {
     .list-img {
         display: none;

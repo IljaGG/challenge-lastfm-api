@@ -17,13 +17,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ToptenComponent } from './topten/topten.component';
 import { LastfmApiService } from './service/lastfm-api.service';
 import { SidebysideComponent } from './sidebyside/sidebyside.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ToptenComponent,
-    SidebysideComponent 
+    SidebysideComponent,
+    SearchComponent 
   ],
   imports: [
     BrowserModule,

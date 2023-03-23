@@ -9,7 +9,7 @@ import { LastfmApiService } from '../service/lastfm-api.service';
 })
 
 export class ToptenComponent implements OnInit {
-  
+
   // Declaring class properties with default values
   myData: any;
   artists: any;
@@ -17,6 +17,16 @@ export class ToptenComponent implements OnInit {
   showList: boolean = true;
   showCard: boolean = false;
   selectedArtist: any;
+  searchText: string = '';
+
+  /**
+This method is called when the search text is entered in the search input field.
+It sets the class property searchText to the value entered by the user.
+@param searchValue The string value entered by the user in the search input field.
+*/
+  onSearchTextEntered(searchValue: string) {
+    this.searchText = searchValue;
+  }
 
   // Injecting the LastfmApiService into the component
   constructor(
@@ -24,7 +34,7 @@ export class ToptenComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Calling getTopTen method with default country code on component initialization
+    // Calling getTopTen method with default country on component initialization
     this.getTopTen('germany');
   }
 
@@ -43,7 +53,7 @@ export class ToptenComponent implements OnInit {
   updateCountry(countryCode: string): void {
     // getTopTen method with the updated country code
     this.getTopTen(countryCode);
-   
+
     this.showList = true;
     this.showCard = false;
   }
@@ -54,7 +64,7 @@ export class ToptenComponent implements OnInit {
     this.lastfmapiService.getInfo(artist.name).subscribe((data) => {
       // Storing the returned data in class property selectedArtist
       this.selectedArtist = data.artist;
-      
+
       this.showList = false;
       this.showCard = true;
     });
@@ -62,8 +72,9 @@ export class ToptenComponent implements OnInit {
 
   // close the artist details and show the artist list
   closeInfo() {
-  
+
     this.showList = true;
     this.showCard = false;
   }
 }
+

@@ -1,6 +1,6 @@
 <div class="topten-wrapper">
   <div class="container">
-      
+    <app-search (searchTextChanged)="onSearchTextEntered($event)" class="search-input"></app-search>
       <!-- Dropdown menu for countries -->
       <mat-form-field>
           <mat-select placeholder="Germany" (selectionChange)="updateCountry($event.value)">
@@ -10,11 +10,11 @@
           </mat-select>
       </mat-form-field>
 
-      <!-- List of the top 10 artists for the selected country. The Images in the API 
+      <!-- List of the top 10 artists for the selected country and ngIf for typed letters in the seachfield. The Images in the API 
         are not working (https://stackoverflow.com/questions/55978243/last-fm-api-returns-same-white-star-image-for-all-artists)-->
       <mat-list role="list" *ngIf="showList">
           <mat-list-item *ngFor="let artist of artists" role="listitem" (click)="getInfo(artist)">
-              <div class="item-container">
+              <div class="item-container" *ngIf=" searchText === '' || artist.name.toLowerCase().includes(searchText)">
                   <span> Artist: {{ artist.name }} </span>
                   <span class="listeners"> Listeners: {{ artist.listeners }} </span>
                   <img class="list-img" [src]="artist.image[0]['#text']" alt="Artist Image">
